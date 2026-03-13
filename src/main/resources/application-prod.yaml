@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    url: jdbc:mysql://prod-db-server:3306/my_bank_db
+    username: prod_user
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        jdbc:
+          batch_size: 20
+        order_inserts: true
+        order_updates: true
+
+springdoc:
+  swagger-ui:
+    enabled: false
+    path: /swagger-ui.html
+
+server:
+  port: 8080
+  shutdown: graceful
+  compression:
+    enabled: true
+
+logging:
+  level:
+    root: WARN
+    com.example.mybankdemoapp: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: /var/log/my-bank-demo-app/my-bank-demo-app.log
+    max-size: 100MB
+    max-history: 60

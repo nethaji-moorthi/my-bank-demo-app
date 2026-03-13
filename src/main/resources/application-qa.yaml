@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url: jdbc:mysql://qa-db-server:3306/my_bank_db
+    username: qa_user
+    password: qa_password456
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: WARN
+    com.example.mybankdemoapp: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/my-bank-demo-app.log
+    max-size: 10MB
+    max-history: 30
