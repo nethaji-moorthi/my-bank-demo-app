@@ -1,8 +1,10 @@
 {
   "info": {
-    "name": "My Bank Demo App",
+    "_postman_id": "30190b9e-fd49-4d17-bfa6-bd4d22e57e68",
+    "name": "MyBankDemoApp",
     "description": "Postman collection for testing My Bank Demo App APIs",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19049006"
   },
   "item": [
     {
@@ -17,7 +19,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"mobile\": \"1234567890\"\n}"
+          "raw": "{\n  \"firstName\": \"Sridhar\",\n  \"lastName\": \"Shanmugam\",\n  \"email\": \"sridhar@gmail.com\",\n  \"mobile\": \"8201212345\"\n}"
         },
         "url": {
           "raw": "http://localhost:8080/api/signup",
@@ -32,7 +34,63 @@
           ]
         }
       },
-      "response": []
+      "response": [
+        {
+          "name": "Signup API",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Sridhar\",\n  \"lastName\": \"Shanmugam\",\n  \"email\": \"sridhar@gmail.com\",\n  \"mobile\": \"8201212345\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/signup",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "signup"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 25 Apr 2026 06:16:40 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status\": \"SUCCESS\",\n    \"data\": {\n        \"id\": 2,\n        \"firstName\": \"Sridhar\",\n        \"lastName\": \"Shanmugam\",\n        \"email\": \"sridhar@gmail.com\",\n        \"mobile\": \"8201212345\",\n        \"accountNumber\": \"201040039445\",\n        \"ifsc\": \"IFSC-44839\",\n        \"timestampUst\": \"2026-04-25T06:16:39.4368734\",\n        \"timestampLocal\": \"2026-04-25T11:46:39.4368734\"\n    },\n    \"error\": null,\n    \"timestampUst\": \"2026-04-25T06:16:39\",\n    \"timestampLocal\": \"2026-04-25T11:46:39\"\n}"
+        }
+      ]
     }
   ]
 }
