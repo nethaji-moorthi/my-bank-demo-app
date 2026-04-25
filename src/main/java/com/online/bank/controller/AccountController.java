@@ -1,8 +1,8 @@
-package com.example.mybankdemoapp.controller;
+package com.online.bank.controller;
 
-import com.example.mybankdemoapp.dto.SignupRequest;
-import com.example.mybankdemoapp.dto.SignupResponse;
-import com.example.mybankdemoapp.service.AccountService;
+import com.online.bank.dto.SignupRequest;
+import com.online.bank.dto.SignupResponse;
+import com.online.bank.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

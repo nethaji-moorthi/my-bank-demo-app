@@ -1,11 +1,10 @@
-package com.example.mybankdemoapp;
+package com.online.bank;
 
-import com.example.mybankdemoapp.dto.SignupRequest;
-import com.example.mybankdemoapp.dto.SignupResponse;
-import com.example.mybankdemoapp.entity.Account;
-import com.example.mybankdemoapp.repository.AccountRepository;
-import com.example.mybankdemoapp.service.AccountService;
-import org.junit.jupiter.api.BeforeEach;
+import com.online.bank.dto.SignupRequest;
+import com.online.bank.dto.SignupResponse;
+import com.online.bank.entity.Account;
+import com.online.bank.repository.AccountRepository;
+import com.online.bank.service.AccountService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

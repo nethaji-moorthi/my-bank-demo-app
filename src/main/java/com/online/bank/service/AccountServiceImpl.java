@@ -1,13 +1,13 @@
-package com.example.mybankdemoapp.service;
+package com.online.bank.service;
 
-import com.example.mybankdemoapp.constants.ResponseConstants;
-import com.example.mybankdemoapp.dto.SignupRequest;
-import com.example.mybankdemoapp.dto.SignupResponse;
-import com.example.mybankdemoapp.entity.Account;
-import com.example.mybankdemoapp.repository.AccountRepository;
-import com.example.mybankdemoapp.util.AccountNumberGenerator;
-import com.example.mybankdemoapp.util.AccountValidationUtility;
-import com.example.mybankdemoapp.util.TimestampUtility;
+import com.online.bank.constants.ResponseConstants;
+import com.online.bank.dto.SignupRequest;
+import com.online.bank.dto.SignupResponse;
+import com.online.bank.entity.Account;
+import com.online.bank.repository.AccountRepository;
+import com.online.bank.util.AccountNumberGenerator;
+import com.online.bank.util.AccountValidationUtility;
+import com.online.bank.util.TimestampUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;

@@ -1,6 +1,6 @@
-package com.example.mybankdemoapp.util;
+package com.online.bank.util;
 
-import com.example.mybankdemoapp.constants.AppConstants;
+import com.online.bank.constants.AppConstants;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;

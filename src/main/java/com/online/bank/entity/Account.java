@@ -1,4 +1,4 @@
-package com.example.mybankdemoapp.entity;
+package com.online.bank.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;

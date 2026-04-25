@@ -1,4 +1,4 @@
-package com.example.mybankdemoapp.constants;
+package com.online.bank.constants;
 
 /**
  * Constants for API response statuses and error messages

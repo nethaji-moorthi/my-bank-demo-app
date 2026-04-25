@@ -1,4 +1,4 @@
-package com.example.mybankdemoapp.util;
+package com.online.bank.util;
 
 import org.springframework.stereotype.Component;
 
