@@ -9,16 +9,16 @@ import io.swagger.v3.oas.annotations.media.Schema;
 public class SignupRequest {
 
     @NotBlank(message = "First name is required")
-    @Schema(description = "First name of the customer", example = "John")
+    @Schema(description = "First name of the customer", example = "Nethaji")
     private String firstName;
 
     @NotBlank(message = "Last name is required")
-    @Schema(description = "Last name of the customer", example = "Doe")
+    @Schema(description = "Last name of the customer", example = "Moorthi")
     private String lastName;
 
     @Email(message = "Invalid email format")
     @NotBlank(message = "Email is required")
-    @Schema(description = "Email address of the customer", example = "john.doe@example.com")
+    @Schema(description = "Email address of the customer", example = "jmnethaji@gmail.com")
     private String email;
 
     @NotBlank(message = "Mobile is required")
