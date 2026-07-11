@@ -1,4 +1,4 @@
-package com.example.mybankdemoapp.constants;
+package com.online.bank.constants;
 
 /**
  * Application-wide constants for account-related operations

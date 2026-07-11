@@ -1,9 +1,9 @@
-package com.example.mybankdemoapp.util;
+package com.online.bank.util;
 
-import com.example.mybankdemoapp.constants.ResponseConstants;
-import com.example.mybankdemoapp.dto.SignupRequest;
-import com.example.mybankdemoapp.dto.SignupResponse;
-import com.example.mybankdemoapp.repository.AccountRepository;
+import com.online.bank.constants.ResponseConstants;
+import com.online.bank.dto.SignupRequest;
+import com.online.bank.dto.SignupResponse;
+import com.online.bank.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.slf4j.Logger;

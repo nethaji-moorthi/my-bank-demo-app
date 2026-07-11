@@ -1,14 +1,18 @@
-package com.example.mybankdemoapp.service;
+package com.online.bank.service;
 
-import com.example.mybankdemoapp.constants.ResponseConstants;
-import com.example.mybankdemoapp.dto.SignupRequest;
-import com.example.mybankdemoapp.dto.SignupResponse;
-import com.example.mybankdemoapp.entity.Account;
-import com.example.mybankdemoapp.repository.AccountRepository;
-import com.example.mybankdemoapp.util.AccountNumberGenerator;
-import com.example.mybankdemoapp.util.AccountValidationUtility;
-import com.example.mybankdemoapp.util.TimestampUtility;
+import com.online.bank.constants.ResponseConstants;
+import com.online.bank.dto.AccountListResponse;
+import com.online.bank.dto.SignupRequest;
+import com.online.bank.dto.SignupResponse;
+import com.online.bank.entity.Account;
+import com.online.bank.repository.AccountRepository;
+import com.online.bank.util.AccountNumberGenerator;
+import com.online.bank.util.AccountValidationUtility;
+import com.online.bank.util.TimestampUtility;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,5 +65,22 @@ public class AccountServiceImpl implements AccountService {
         logger.debug("Account details - IFSC: {}, Name: {} {}", ifsc, request.getFirstName(), request.getLastName());
 
         return new SignupResponse(ResponseConstants.STATUS_SUCCESS, account, null, nowUtc, nowLocal);
+    }
+
+    @Override
+    public AccountListResponse getAccounts(int limit, int offset) {
+        logger.info("Fetching accounts with limit: {} and offset: {}", limit, offset);
+
+        try {
+            Pageable pageable = PageRequest.of(offset / limit, limit);
+            Page<Account> page = accountRepository.findAll(pageable);
+
+            logger.info("Fetched {} accounts out of {} total", page.getContent().size(), page.getTotalElements());
+
+            return new AccountListResponse("SUCCESS", page.getContent(), limit, offset, page.getTotalElements(), null);
+        } catch (Exception e) {
+            logger.error("Error fetching accounts: {}", e.getMessage());
+            return new AccountListResponse("ERROR", null, limit, offset, 0, e.getMessage());
+        }
     }
 }

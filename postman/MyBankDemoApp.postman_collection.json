@@ -1,8 +1,10 @@
 {
   "info": {
-    "_postman_id": "30190b9e-fd49-4d17-bfa6-bd4d22e57e68",
+    "_postman_id": "2387e93f-44a6-412e-aad4-9f5907839da7",
     "name": "MyBankDemoApp",
     "description": "Postman collection for testing My Bank Demo App APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19049006"
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "19049006"
   },
@@ -20,6 +22,7 @@
         "body": {
           "mode": "raw",
           "raw": "{\n  \"firstName\": \"Sridhar\",\n  \"lastName\": \"Shanmugam\",\n  \"email\": \"sridhar@gmail.com\",\n  \"mobile\": \"8201212345\"\n}"
+          "raw": "{\n  \"firstName\": \"Sridhar\",\n  \"lastName\": \"Shanmugam\",\n  \"email\": \"sridhar@gmail.com\",\n  \"mobile\": \"8201212345\"\n}"
         },
         "url": {
           "raw": "http://localhost:8080/api/signup",
@@ -36,7 +39,7 @@
       },
       "response": [
         {
-          "name": "Signup API",
+          "name": "Signup-200",
           "originalRequest": {
             "method": "POST",
             "header": [
@@ -64,7 +67,7 @@
           },
           "status": "OK",
           "code": 200,
-          "_postman_previewlanguage": null,
+          "_postman_previewlanguage": "Text",
           "header": [
             {
               "key": "Content-Type",
@@ -89,6 +92,107 @@
           ],
           "cookie": [],
           "body": "{\n    \"status\": \"SUCCESS\",\n    \"data\": {\n        \"id\": 2,\n        \"firstName\": \"Sridhar\",\n        \"lastName\": \"Shanmugam\",\n        \"email\": \"sridhar@gmail.com\",\n        \"mobile\": \"8201212345\",\n        \"accountNumber\": \"201040039445\",\n        \"ifsc\": \"IFSC-44839\",\n        \"timestampUst\": \"2026-04-25T06:16:39.4368734\",\n        \"timestampLocal\": \"2026-04-25T11:46:39.4368734\"\n    },\n    \"error\": null,\n    \"timestampUst\": \"2026-04-25T06:16:39\",\n    \"timestampLocal\": \"2026-04-25T11:46:39\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "GET Signup - List Accounts",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/signup?limit=10&offset=0",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "signup"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "10",
+              "description": "Number of items to return per page"
+            },
+            {
+              "key": "offset",
+              "value": "0",
+              "description": "Number of items to skip (offset for pagination)"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "List-Signup-200",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/signup?limit=10&offset=0",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "signup"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of items to return per page"
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Number of items to skip (offset for pagination)"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 15:35:43 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status\": \"SUCCESS\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"firstName\": \"Nethaji\",\n            \"lastName\": \"Moorthi\",\n            \"email\": \"jmnethaji@gmail.com\",\n            \"mobile\": \"9095622490\",\n            \"accountNumber\": \"201040012345\",\n            \"ifsc\": \"IFSC-12345\",\n            \"timestampUst\": \"2026-03-13T19:17:11\",\n            \"timestampLocal\": \"2026-03-13T19:17:11\"\n        },\n        {\n            \"id\": 2,\n            \"firstName\": \"Mownika\",\n            \"lastName\": \"Nethaji\",\n            \"email\": \"mownika.nethaji@gmail.com\",\n            \"mobile\": \"9876512345\",\n            \"accountNumber\": \"201040012408\",\n            \"ifsc\": \"IFSC-00727\",\n            \"timestampUst\": \"2026-03-13T14:16:45\",\n            \"timestampLocal\": \"2026-03-13T19:46:45\"\n        },\n        {\n            \"id\": 3,\n            \"firstName\": \"Sridhar\",\n            \"lastName\": \"Shanmugam\",\n            \"email\": \"sridhar@gmail.com\",\n            \"mobile\": \"8201212345\",\n            \"accountNumber\": \"201040009209\",\n            \"ifsc\": \"IFSC-50288\",\n            \"timestampUst\": \"2026-03-13T14:22:06\",\n            \"timestampLocal\": \"2026-03-13T19:52:06\"\n        },\n        {\n            \"id\": 4,\n            \"firstName\": \"Sridhar\",\n            \"lastName\": \"Shanmugam\",\n            \"email\": \"sridhar1@gmail.com\",\n            \"mobile\": \"8201212341\",\n            \"accountNumber\": \"201040079296\",\n            \"ifsc\": \"IFSC-83128\",\n            \"timestampUst\": \"2026-07-11T14:52:31\",\n            \"timestampLocal\": \"2026-07-11T20:22:31\"\n        }\n    ],\n    \"limit\": 10,\n    \"offset\": 0,\n    \"total\": 4,\n    \"error\": null\n}"
         }
       ]
     }

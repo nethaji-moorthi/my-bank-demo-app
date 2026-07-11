@@ -1,8 +1,9 @@
-package com.example.mybankdemoapp.controller;
+package com.online.bank.controller;
 
-import com.example.mybankdemoapp.dto.SignupRequest;
-import com.example.mybankdemoapp.dto.SignupResponse;
-import com.example.mybankdemoapp.service.AccountService;
+import com.online.bank.dto.AccountListResponse;
+import com.online.bank.dto.SignupRequest;
+import com.online.bank.dto.SignupResponse;
+import com.online.bank.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.Parameter;
 
 @RestController
 @RequestMapping("/api")
@@ -33,6 +35,24 @@ public class AccountController {
     })
     public ResponseEntity<SignupResponse> signup(@Valid @RequestBody SignupRequest request) {
         SignupResponse response = accountService.signup(request);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/signup")
+    @Operation(summary = "List all accounts", description = "Retrieves a paginated list of all accounts with specified limit and offset")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Accounts retrieved successfully",
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = AccountListResponse.class))),
+            @ApiResponse(responseCode = "400", description = "Invalid limit or offset parameters"),
+            @ApiResponse(responseCode = "500", description = "Internal server error")
+    })
+
+    public ResponseEntity<AccountListResponse> getAccounts(
+            @Parameter(description = "Number of items to return per page", example = "10")
+            @RequestParam(defaultValue = "10") int limit,
+            @Parameter(description = "Number of items to skip (offset for pagination)", example = "0")
+            @RequestParam(defaultValue = "0") int offset) {
+        AccountListResponse response = accountService.getAccounts(limit, offset);
         return ResponseEntity.ok(response);
     }
 }
