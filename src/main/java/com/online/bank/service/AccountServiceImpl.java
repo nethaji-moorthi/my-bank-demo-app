@@ -36,6 +36,9 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     private TimestampUtility timestampUtility;
 
+    @Autowired
+    private EmailService emailService;
+
     @Override
     public SignupResponse signup(SignupRequest request) {
         logger.info("Processing signup request for email: {}", request.getEmail());
@@ -63,6 +66,8 @@ public class AccountServiceImpl implements AccountService {
         logger.info("Account created successfully. ID: {}, Account Number: {}, Email: {}", 
                    account.getId(), accountNumber, request.getEmail());
         logger.debug("Account details - IFSC: {}, Name: {} {}", ifsc, request.getFirstName(), request.getLastName());
+
+        emailService.sendSignupConfirmation(request.getEmail(), request.getFirstName());
 
         return new SignupResponse(ResponseConstants.STATUS_SUCCESS, account, null, nowUtc, nowLocal);
     }
