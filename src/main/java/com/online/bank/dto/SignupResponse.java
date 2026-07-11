@@ -1,6 +1,6 @@
-package com.example.mybankdemoapp.dto;
+package com.online.bank.dto;
 
-import com.example.mybankdemoapp.entity.Account;
+import com.online.bank.entity.Account;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDateTime;

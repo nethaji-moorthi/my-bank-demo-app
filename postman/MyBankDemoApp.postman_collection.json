@@ -5,6 +5,8 @@
     "description": "Postman collection for testing My Bank Demo App APIs",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "19049006"
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19049006"
   },
   "item": [
     {
@@ -19,6 +21,7 @@
         ],
         "body": {
           "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Sridhar\",\n  \"lastName\": \"Shanmugam\",\n  \"email\": \"sridhar@gmail.com\",\n  \"mobile\": \"8201212345\"\n}"
           "raw": "{\n  \"firstName\": \"Sridhar\",\n  \"lastName\": \"Shanmugam\",\n  \"email\": \"sridhar@gmail.com\",\n  \"mobile\": \"8201212345\"\n}"
         },
         "url": {

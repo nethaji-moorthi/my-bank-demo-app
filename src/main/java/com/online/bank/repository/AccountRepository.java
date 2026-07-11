@@ -1,8 +1,9 @@
-package com.example.mybankdemoapp.repository;
+package com.online.bank.repository;
 
 import com.example.mybankdemoapp.entity.Account;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import com.online.bank.entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
