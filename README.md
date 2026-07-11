@@ -108,6 +108,53 @@ Creates a new account.
 }
 ```
 
+### GET /api/signup
+Lists all accounts with pagination support.
+
+**Query Parameters:**
+- `limit` (optional, default: 10): Number of items to return per page
+- `offset` (optional, default: 0): Number of items to skip (offset for pagination)
+
+**Request:**
+```
+GET http://localhost:8080/api/signup?limit=10&offset=0
+```
+
+**Response:**
+```json
+{
+  "status": "SUCCESS",
+  "data": [
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "mobile": "1234567890",
+      "accountNumber": "2010400xxxxx",
+      "ifsc": "IFSC-xxxxx",
+      "timestampUst": "2026-03-13T17:05:20",
+      "timestampLocal": "2026-03-13T17:05:20"
+    },
+    {
+      "id": 2,
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "email": "jane.smith@example.com",
+      "mobile": "9876543210",
+      "accountNumber": "2010400xxxxx",
+      "ifsc": "IFSC-xxxxx",
+      "timestampUst": "2026-03-13T17:06:30",
+      "timestampLocal": "2026-03-13T17:06:30"
+    }
+  ],
+  "limit": 10,
+  "offset": 0,
+  "total": 2,
+  "error": null
+}
+```
+
 ## Testing
 - Use the Postman collection `MyBankDemoApp.postman_collection.json` to test the API.
 - Run unit tests: `mvn test`

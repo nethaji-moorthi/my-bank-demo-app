@@ -2,9 +2,13 @@ package com.example.mybankdemoapp.service;
 
 import com.example.mybankdemoapp.dto.SignupRequest;
 import com.example.mybankdemoapp.dto.SignupResponse;
+import com.example.mybankdemoapp.dto.AccountListResponse;
 import com.example.mybankdemoapp.entity.Account;
 import com.example.mybankdemoapp.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,5 +60,21 @@ public class AccountService {
         logger.debug("Account details - IFSC: {}, Name: {} {}", ifsc, request.getFirstName(), request.getLastName());
 
         return new SignupResponse("SUCCESS", account, null, nowUtc, nowLocal);
+    }
+
+    public AccountListResponse getAccounts(int limit, int offset) {
+        logger.info("Fetching accounts with limit: {} and offset: {}", limit, offset);
+        
+        try {
+            Pageable pageable = PageRequest.of(offset / limit, limit);
+            Page<Account> page = accountRepository.findAll(pageable);
+            
+            logger.info("Fetched {} accounts out of {} total", page.getContent().size(), page.getTotalElements());
+            
+            return new AccountListResponse("SUCCESS", page.getContent(), limit, offset, page.getTotalElements(), null);
+        } catch (Exception e) {
+            logger.error("Error fetching accounts: {}", e.getMessage());
+            return new AccountListResponse("ERROR", null, limit, offset, 0, e.getMessage());
+        }
     }
 }
