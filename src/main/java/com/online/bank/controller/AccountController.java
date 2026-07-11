@@ -1,8 +1,8 @@
 package com.online.bank.controller;
 
+import com.online.bank.dto.AccountListResponse;
 import com.online.bank.dto.SignupRequest;
 import com.online.bank.dto.SignupResponse;
-import com.example.mybankdemoapp.dto.AccountListResponse;
 import com.online.bank.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -46,6 +46,7 @@ public class AccountController {
             @ApiResponse(responseCode = "400", description = "Invalid limit or offset parameters"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
+
     public ResponseEntity<AccountListResponse> getAccounts(
             @Parameter(description = "Number of items to return per page", example = "10")
             @RequestParam(defaultValue = "10") int limit,
